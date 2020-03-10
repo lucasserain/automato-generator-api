@@ -13,13 +13,20 @@ public class Simbolos {
 	private String estado;
 	
 	public void printaIfSimbolo() {
-		System.out.println("\tif(f[p] == "+"'"+this.getName()+"'" +")\n" + 
+		Arquivo.setTextos("\tif(f[p] == "+"'"+this.getName()+"'" +")\n" + 
 				"\t\t{\n" + 
 				"\t\t\tp++;\n" + 
 				"\t\t\t"+this.getEstado()+"();\n" + 
-				"\t\t}");
+				"\t\t}\n");
 	}
 	
+	public void printaIfSimboloGoto() {
+		Arquivo.setTextos("\tif(f[p] == "+"'"+this.getName()+"'" +")\n" + 
+				"\t\t{\n" + 
+				"\t\t\tp++;\n" + 
+				"\t\t\tgoto "+this.getEstado()+";\n" + 
+				"\t\t}");
+	}
 
 	
 	

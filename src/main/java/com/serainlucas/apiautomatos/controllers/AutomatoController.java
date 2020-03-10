@@ -8,7 +8,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.serainlucas.apiautomatos.models.Arquivo;
 import com.serainlucas.apiautomatos.models.Automato;
+import com.serainlucas.apiautomatos.models.Master;
 import com.serainlucas.apiautomatos.service.AutomatoService;
 
 @RestController
@@ -20,8 +22,10 @@ public class AutomatoController {
 	
 	
 	@PostMapping(consumes = "application/json", produces = "application/json")
-	public void createAFN(@RequestBody Automato automato) {
+	public String createAFN(@RequestBody Master automato) {
+		
 		automatoService.imprimeAutomato(automato);
+		return Arquivo.getTextos();
 	
 	}
 }
